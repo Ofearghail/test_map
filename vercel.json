@@ -1,15 +1,40 @@
 {
-    "version": 2,
-    "routes": [
-      {
-        "src": "/",
-        "dest": "/index.html"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/$1"
-      }
-    ]
-  }
-  
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/projects/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/projects/[id].js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/projects/delete.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/projects/update.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/*",
+      "dest": "/public",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/public/index.html"
+    },
+    {
+      "src": "/dashboard",
+      "dest": "/public/dashboard.html"
+    },
+    {
+      "src": "/dashboard/users",
+      "dest": "/public/users.html"
+    }
+  ]
+}
