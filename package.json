@@ -2,9 +2,8 @@
   "name": "client_project",
   "version": "1.0.0",
   "type": "module",
-  "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node api/index.js",
     "dev": "vercel dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,12 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "@libsql/client": "^0.15.4",
-    "better-sqlite3": "^11.9.1",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "serverless-http": "^3.2.0",
-    "sqlite3": "^5.1.7"
+    "serverless-http": "^3.2.0"
   },
   "description": ""
 }
