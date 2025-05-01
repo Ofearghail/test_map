@@ -25,7 +25,7 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 // Ensure the table exists on Turso (libSQL)
 (async () => {
