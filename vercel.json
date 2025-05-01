@@ -1,8 +1,13 @@
 {
-    "rewrites": [
-      { "source": "/", "destination": "/public/index.html" },
-      { "source": "/dashboard", "destination": "/public/dashboard.html" },
-      { "source": "/dashboard/users", "destination": "/public/users.html" }
+    "version": 2,
+    "builds": [
+        { "src": "*.html", "use": "@vercel/static" },
+        { "src": "*.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/"
+      }
     ]
-  }
-  
+}
