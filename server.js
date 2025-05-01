@@ -172,16 +172,16 @@ app.put('/projects/update', async (req, res) => {
 
 // Serve dashboard page
 app.get('/dashboard', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dashboard.html'));
+    res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
 
 app.get('/dashboard/users', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public'  ,'users.html'));
+    res.sendFile(path.join(__dirname, 'public', 'users.html'));
 });
 
 // Serve frontend
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public' ,'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 const PORT = 3000;
