@@ -4,10 +4,14 @@ import path from 'path';
 import { createClient } from '@libsql/client';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
+import serverless from 'serverless-http'; // Add serverless-http module
+
+
 dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const PORT = process.env.PORT || 3000;
 console.log('Loaded DB URL:', process.env.TURSO_DATABASE_URL);
 
 // Create the Turso client
@@ -125,5 +129,9 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Export the app as a serverless function for Vercel
-export default app;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
+
+// Export the app as a serverless function using serverless-http
+export default serverless(app);
