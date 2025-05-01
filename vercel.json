@@ -16,11 +16,6 @@
     {
       "src": "api/projects/update.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "public/*",
-      "dest": "/public",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -35,6 +30,10 @@
     {
       "src": "/dashboard/users",
       "dest": "/public/users.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
     }
   ]
 }
